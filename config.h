@@ -5,8 +5,8 @@
  *
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
-static char *font = "Roboto Mono:style=medium:size=12:antialias=true:autohint=true";
-static int borderpx = 2;
+static char *font = "Roboto Mono:style=medium:size=10:antialias=true:autohint=true";
+static int borderpx = 8;
 
 /*
  * What program is execed by st depends of these precedence rules:
@@ -180,7 +180,7 @@ static uint forcemousemod = ShiftMask;
  */
 static MouseShortcut mshortcuts[] = {
 	/* mask                 button   function        argument       release */
-	{ XK_ANY_MOD,           Button2, selpaste,       {.i = 0},      1 },
+	{ XK_ANY_MOD,           Button2, clippaste,       {.i = 0},      1 },
 	{ ShiftMask,            Button4, ttysend,        {.s = "\033[5;2~"} },
 	{ XK_ANY_MOD,           Button4, ttysend,        {.s = "\031"} },
 	{ ShiftMask,            Button5, ttysend,        {.s = "\033[6;2~"} },
@@ -202,8 +202,8 @@ static Shortcut shortcuts[] = {
 	{ TERMMOD,              XK_Home,        zoomreset,      {.f =  0} },
 	{ TERMMOD,              XK_C,           clipcopy,       {.i =  0} },
 	{ TERMMOD,              XK_V,           clippaste,      {.i =  0} },
-	{ TERMMOD,              XK_Y,           selpaste,       {.i =  0} },
-	{ ShiftMask,            XK_Insert,      selpaste,       {.i =  0} },
+	{ TERMMOD,              XK_Y,           clippaste,       {.i =  0} },
+	{ ShiftMask,            XK_Insert,      clippaste,       {.i =  0} },
 	{ TERMMOD,              XK_Num_Lock,    numlock,        {.i =  0} },
 };
 
